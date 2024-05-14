@@ -24,6 +24,7 @@ formUser.addEventListener("submit", function (e) {
 formMessage.addEventListener("submit", function (e) {
   e.preventDefault();
   if (inputMessage.value) {
+    console.log(myInputColor);
     socket.emit("chatMessage", {
       user: myUser,
       inputColor: myInputColor,
@@ -34,19 +35,14 @@ formMessage.addEventListener("submit", function (e) {
 });
 
 // visar chathistorik (allt som alla skickat)
-socket.on("chatMessage", (msg) => {
-  io.emit("newChatMessage", msg.user + ":" + msg.message);
-
-  let user = msg.user;
-  let message = msg.message;
-
+socket.on("newChatMessage", function (msg) {
   //spara till mongoDB
-  const newMessage = newMessageModel({
-    message: message,
-    user: user,
-    date: dateTime,
-  });
-  newMessage.save();
+  //   const newMessage = newMessageModel({
+  //     message: message,
+  //     user: user,
+  //     date: dateTime,
+  //   });
+  //   newMessage.save();
 });
 
 // let today = new Date();

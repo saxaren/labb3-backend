@@ -7,7 +7,7 @@ const io = new Server(server);
 const port = 3000;
 app.use(express.static("public"));
 server.listen(port, () => {
-  console.log("Socket.IO Server running at http://localhost:${port}/");
+  console.log(`Socket.IO Server running at http://localhost:${port}/`);
 });
 
 setInterval(() => {
@@ -21,10 +21,18 @@ io.on("connection", (socket) => {
   console.log(`A client with id ${socket.id} connected to the chat!`);
 
   socket.on("chatMessage", (msg) => {
-    console.log(msg.message);
+    console.log(
+      "msg.message",
+      msg.message,
+      "msg.user",
+      msg.user,
+      "msg.inputColor",
+      msg.inputColor
+    );
     io.emit("newChatMessage", {
       user: msg.user,
       message: msg.message,
+      inputColor: msg.inputColor,
     });
   });
   socket.on("disconnect", () => {
