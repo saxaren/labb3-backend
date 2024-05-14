@@ -7,20 +7,21 @@
   </head>
   <body>
     <h1>Chat</h1>
-    <div id="userContainer">
-      <div id="user">
-        <form id="formUser">
-          <input id="inputMessage" type="text" />
-          <button>Skriv in ditt namn</button>
-        </form>
-      </div>
-      <div id="message">
-        <form id="formMessage">
-          <input type="text" id="input" />
-          <button>send</button>
-        </form>
-      </div>
+    <div id="userContainer"></div>
+    <div id="user">
+      <form id="formUser">
+        <p>namn: <input id="inputUser" type="text" action="" /></p>
+        <p>favoritfärg: <input id="inputColor" type="text" action="" /></p>
+        <button>Skriv in ditt namn</button>
+      </form>
     </div>
+    <div id="message">
+      <form id="formMessage">
+        <input id="inputMessage" type="text" action="" />
+        <button>send</button>
+      </form>
+    </div>
+
     <h2>Chatmeddelanden</h2>
     <ul id="messages"></ul>
     <script src="/socket.io/socket.io.js"></script>

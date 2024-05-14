@@ -19,8 +19,13 @@ setInterval(() => {
 
 io.on("connection", (socket) => {
   console.log(`A client with id ${socket.id} connected to the chat!`);
+
   socket.on("chatMessage", (msg) => {
-    io.emit("newChatMessage", msg);
+    console.log(msg.message);
+    io.emit("newChatMessage", {
+      user: msg.user,
+      message: msg.message,
+    });
   });
   socket.on("disconnect", () => {
     console.log(`Client ${socket.id} disconnected!`);
