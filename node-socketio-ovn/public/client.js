@@ -17,9 +17,11 @@ formUser.addEventListener("submit", function (e) {
   myUser = inputUser.value;
   myInputColor = inputColor.value;
   userContainer.innerHTML = `<h2>Välkommen ${myUser} din favoritfärg är ${myInputColor}</h2>`;
-  // document.querySelector("#user").style.display = "none";
-  // document.querySelector("#message").style.display = "block";
+  document.querySelector("#user").style.display = "none";
+  document.querySelector("#message").style.display = "block";
 });
+
+
 
 formMessage.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -34,8 +36,12 @@ formMessage.addEventListener("submit", function (e) {
   }
 });
 
+
 // visar chathistorik (allt som alla skickat)
 socket.on("newChatMessage", function (msg) {
+  let item = document.createElement("li");
+  item.textContent = msg.user + " : " + msg.message;
+  messages.appendChild(item);
   //spara till mongoDB
   //   const newMessage = newMessageModel({
   //     message: message,
