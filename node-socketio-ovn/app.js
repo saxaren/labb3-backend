@@ -23,14 +23,6 @@ io.on("connection", (socket) => {
   console.log(`A client with id ${socket.id} connected to the chat!`);
 
   socket.on("chatMessage", (msg) => {
-    console.log(
-      "msg.message",
-      msg.message,
-      "msg.user",
-      msg.user,
-      "msg.inputColor",
-      msg.inputColor
-    );
     io.emit("newChatMessage", {
       user: msg.user,
       message: msg.message,
