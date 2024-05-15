@@ -5,7 +5,9 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const port = 3000;
+
 app.use(express.static("public"));
+
 server.listen(port, () => {
   console.log(`Socket.IO Server running at http://localhost:${port}/`);
 });
