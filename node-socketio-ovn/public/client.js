@@ -36,6 +36,9 @@ formMessage.addEventListener("submit", function (e) {
 
 // visar chathistorik (allt som alla skickat)
 socket.on("newChatMessage", function (msg) {
+  let item = document.createElement("li");
+  item.textContent = msg.user + " : " + msg.message;
+  messages.appendChild(item);
   //spara till mongoDB
   //   const newMessage = newMessageModel({
   //     message: message,
