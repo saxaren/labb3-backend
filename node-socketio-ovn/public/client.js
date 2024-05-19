@@ -43,7 +43,7 @@ formUser.addEventListener("submit", function (e) {
   e.preventDefault();
   myUser = inputUser.value;
   myInputColor = inputColor.value;
-  userContainer.innerHTML = `<h2>Välkommen ${myUser} din favoritfärg är ${myInputColor}</h2>`;
+  userContainer.innerHTML = `<h2>Välkommen ${myUser}, med favoritfärgen ${myInputColor}</h2>`;
   document.querySelector("#user").style.display = "none";
   document.querySelector("#message").style.display = "block";
 });
